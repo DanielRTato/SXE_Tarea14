@@ -37,6 +37,14 @@ order by commercial_company_name;
 ![6.png](img/6.png)
 ---
 
+# Apartado 5
+select res_partner.name, account_move.invoice_date, account_move.amount_untaxed
+from account_move
+join res_partner on account_move.partner_id = res_partner.id
+where account_move.move_type = 'in_refund';
+![7.png](img/7.png)
+---
+
 
 
 
