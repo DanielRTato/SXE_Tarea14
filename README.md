@@ -45,6 +45,15 @@ where account_move.move_type = 'in_refund';
 ![7.png](img/7.png)
 ---
 
+# Apartado 6
+select res_partner.name, count(*), sum (account_move.amount_untaxed) from res_partner
+join account_move  on account_move.partner_id = res_partner.id where 
+account_move.move_type='out_invoice' and account_move.state = 'posted' 
+group by res_partner.id, res_partner.name having count(account_move.id)>2;
+![Captura de pantalla 2025-11-25 113410.png](img/Captura%20de%20pantalla%202025-11-25%20113410.png)
+---
+
+# Apartado 7
 
 
 
