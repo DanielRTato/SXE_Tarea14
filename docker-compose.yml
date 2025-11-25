@@ -2,7 +2,7 @@ services:
 
   odoo:
     image: odoo:18
-    container_name: odoo
+    container_name: odooo
     ports:
       - "8069:8069"
     depends_on:
@@ -13,17 +13,17 @@ services:
       - PASSWORD=odoo
       - ADMIN_PASSWORD=admin
     volumes:
-      - odoo_data:/var/lib/odoo
+      - odoo_volumen:/var/lib/odoo
 
   db:
     image: postgres:16
-    container_name: odoo_db
+    container_name: odo_db
     environment:
       - POSTGRES_USER=odoo
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_DB=postgres
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_volumen:/var/lib/postgresql/data
 
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -37,5 +37,5 @@ services:
       - "8081:80"
 
 volumes:
-  odoo_data:
-  db_data:
+  odoo_volumen:
+  db_volumen:
