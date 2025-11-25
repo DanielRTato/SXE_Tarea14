@@ -25,4 +25,11 @@ insert into empresasFCT (nombre, quiereAlumnos, numAlumnos, fechaContacto) value
 ![4.png](img/4.png)
 ----
 
+# Apartado 3
+select * from empresasfct order by fechaContacto desc;
+![5.png](img/5.png)
+---
+
+
+
 
