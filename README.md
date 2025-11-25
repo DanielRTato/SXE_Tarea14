@@ -54,6 +54,9 @@ group by res_partner.id, res_partner.name having count(account_move.id)>2;
 ---
 
 # Apartado 7
+update res_partner set email = replace(email, '@bilbao.example.com', '@bilbao.bizkaia.eus')
+where email like '%@bilbao.example.com';
+![9.png](img/9.png)
 
 
 
