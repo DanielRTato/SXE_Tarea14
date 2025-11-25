@@ -1,9 +1,12 @@
-## Creacion de la base de datos e instalacion de los modulos
+# Creacion de la base de datos e instalacion de los modulos
 
+Configuración de la base de datos e instalación de los módulos.
 ![1.png](img/1.png)
 ![2.png](img/2.png)
+---
 
 # Apartado 1
+```sql
 create table EmpresasFCT(
 	idEmpresa serial,
 	nombre varchar(40),
@@ -12,50 +15,62 @@ create table EmpresasFCT(
 	fechaContacto date,
 	primary key(idEmpresa)
 )
+```
 ![3.png](img/3.png)
 ---
 # Apartado 2
+```sql
 insert into empresasFCT (nombre, quiereAlumnos, numAlumnos, fechaContacto) values
     ('Plastmeca', true, 2, '2025-05-10'),
     ('Cercaplast', false, 0, '2025-05-11'),
     ('Erictega', false, 0, '2025-05-09'),
     ('Hermasa', false, 0, '2025-06-10'),
     ('Plastmeca', true, 1, '2025-03-23');
-
+```
 ![4.png](img/4.png)
 ----
 
 # Apartado 3
+```sql
 select * from empresasfct order by fechaContacto desc;
+```
 ![5.png](img/5.png)
 ---
 
 # Apartado 4
+```sql
 select name, city, commercial_company_name from res_partner
 where city != 'Tracy' and is_company = false
 order by commercial_company_name;
+````
 ![6.png](img/6.png)
 ---
 
 # Apartado 5
+```sql
 select res_partner.name, account_move.invoice_date, account_move.amount_untaxed
 from account_move
 join res_partner on account_move.partner_id = res_partner.id
 where account_move.move_type = 'in_refund';
+````
 ![7.png](img/7.png)
 ---
 
 # Apartado 6
+```sql
 select res_partner.name, count(*), sum (account_move.amount_untaxed) from res_partner
 join account_move  on account_move.partner_id = res_partner.id where 
 account_move.move_type='out_invoice' and account_move.state = 'posted' 
 group by res_partner.id, res_partner.name having count(account_move.id)>2;
+```
 ![Captura de pantalla 2025-11-25 113410.png](img/Captura%20de%20pantalla%202025-11-25%20113410.png)
 ---
 
 # Apartado 7
+```sql
 update res_partner set email = replace(email, '@bilbao.example.com', '@bilbao.bizkaia.eus')
 where email like '%@bilbao.example.com';
+```
 ![9.png](img/9.png)
 
 
