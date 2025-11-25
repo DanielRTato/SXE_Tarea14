@@ -30,6 +30,18 @@ select * from empresasfct order by fechaContacto desc;
 ![5.png](img/5.png)
 ---
 
+# Apartado 4
+select name, city, commercial_company_name from res_partner
+where city != 'Tracy' and is_company = false
+order by commercial_company_name;
+![6.png](img/6.png)
+---
+
+
+
+
+
+
 
 
 
